@@ -12,13 +12,22 @@
 
 <script setup>
 import { useQuasar } from "quasar";
-import { ref, watch } from "vue";
+import { ref, watch, onMounted } from "vue";
 
 const darkMode = ref(false);
 const $q = useQuasar();
 
 watch(darkMode, (darkMode) => {
   $q.dark.set(darkMode);
+  $q.localStorage.set("darkMode", darkMode);
+});
+
+onMounted(() => {
+  const darkModeIsActive = $q.localStorage.getItem("darkMode");
+
+  if (darkModeIsActive) {
+    darkMode.value = true;
+  }
 });
 </script>
 
