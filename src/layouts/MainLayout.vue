@@ -33,12 +33,13 @@
 
     <q-page-container>
       <TableQuasar />
+      <!-- {{ countries }} -->
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import { defineComponent, ref, onBeforeMount } from "vue";
+import { defineComponent, ref } from "vue";
 import EssentialLink from "components/EssentialLink.vue";
 import TableQuasar from "components/TableQuasar.vue";
 import DarkModeToggle from "components/DarkModeToggle.vue";
@@ -99,15 +100,6 @@ export default defineComponent({
 
   setup() {
     const leftDrawerOpen = ref(false);
-
-    // onBeforeMount(async () => {
-    //   try {
-    //     await axios.get("https://restcountries.com/v3.1/all");
-    //   } catch (error) {
-    //     alert(error);
-    //     console.log(error);
-    //   }
-    // });
 
     return {
       essentialLinks: linksList,
