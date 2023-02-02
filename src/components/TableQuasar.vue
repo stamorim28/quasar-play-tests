@@ -54,9 +54,10 @@
 </template>
 
 <script setup>
-import { onBeforeMount, onMounted, ref, computed } from "vue";
+import { onBeforeMount, ref, computed } from "vue";
 import { useCountriesStore } from "../stores/countries";
 import { storeToRefs } from "pinia";
+import useNotify from "../composable/useNotify";
 
 // const props = defineProps({
 //   countries: Array,
@@ -66,12 +67,16 @@ const store = useCountriesStore();
 const { countries } = storeToRefs(store);
 const { fetchAllCountries } = store;
 
-onMounted(async () => {
+const { notifySuccess, notifyError } = useNotify();
+
+onBeforeMount(async () => {
   try {
     await fetchAllCountries();
+    notifySuccess();
   } catch (error) {
-    alert(error);
+    notifyError();
     console.log(error);
+  } finally {
   }
 });
 
@@ -90,9 +95,13 @@ const pagesNumber = computed(() =>
 );
 
 function formatLanguages(e) {
-  const languages = Object.values(e);
+  if (e === null || e === undefined) {
+    return "---";
+  } else {
+    const languages = Object.values(e);
 
-  return languages.join(", ");
+    return languages.join(", ");
+  }
 }
 
 function formatNumbersToPTBR(e) {
@@ -111,20 +120,25 @@ const columns = [
     label: "Name",
     align: "left",
   },
-  // {
-  //   name: "signs",
-  //   label: "Signs",
-  //   field: (row) => row.car.signs,
-  //   sortable: true,
-  //   align: "left",
-  // },
+  {
+    name: "signs",
+    label: "Signs",
+    field: (row) => (row.cca3 == "" ? "---" : row.cca3),
+    sortable: true,
+    align: "left",
+  },
   {
     name: "continents",
     label: "Continents",
     field: "continents",
     align: "left",
   },
-  { name: "subregion", label: "Subregion", field: "subregion", align: "left" },
+  {
+    name: "subregion",
+    label: "Subregion",
+    field: (row) => (row?.subregion ? row?.subregion : "---"),
+    align: "left",
+  },
   {
     name: "population",
     label: "Population",
