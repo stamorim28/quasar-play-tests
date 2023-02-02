@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md">
-    <q-table
+    <!-- <q-table
       title="Countries"
       :rows="countries"
       :columns="columns"
@@ -38,7 +38,7 @@
           </div>
         </q-td>
       </template>
-    </q-table>
+    </q-table> -->
     <div class="row justify-center q-mt-md">
       <q-pagination
         v-model="pagination.page"
