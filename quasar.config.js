@@ -8,7 +8,7 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
-const { LocalStorage } = require("quasar");
+const { LocalStorage, Notify } = require("quasar");
 const { configure } = require("quasar/wrappers");
 
 module.exports = configure(function (/* ctx */) {
@@ -100,7 +100,7 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ["LocalStorage"],
+      plugins: ["LocalStorage", "Notify"],
     },
 
     // animations: 'all', // --- includes all animations
