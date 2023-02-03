@@ -2,7 +2,7 @@
   "name": "quasar-initial-tests",
   "version": "0.0.1",
   "description": "A Quasar Project",
-  "productName": "Quasar App",
+  "productName": "Countries App",
   "author": "Stenio <jstenio.rocha@gmail.com>",
   "private": true,
   "scripts": {
