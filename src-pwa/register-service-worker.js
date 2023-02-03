@@ -34,7 +34,7 @@ register(process.env.SERVICE_WORKER_FILE, {
       message: "Nova atualização disponível",
       icon: "mdi-cloud-download-outline",
       closeBtn: "Atualizar",
-      timeout: 10000,
+      // timeout: 10000,
       onDismiss() {
         location.reload(true); // com o true ele ignora todo o cache de atualização e fez o o upload do zero
       },
