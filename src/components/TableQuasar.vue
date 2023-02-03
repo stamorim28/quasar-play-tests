@@ -123,7 +123,6 @@ const columns = [
   {
     name: "continents",
     label: "Continents",
-    field: "continents",
     field: (row) => row.continents.filter((conti) => conti),
     align: "left",
   },
