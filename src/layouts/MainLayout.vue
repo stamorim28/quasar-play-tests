@@ -14,8 +14,6 @@
         <q-toolbar-title> Countries App </q-toolbar-title>
 
         <DarkModeToggle />
-
-        <!-- <div>Quasar v{{ $q.version }}</div> -->
       </q-toolbar>
     </q-header>
 
@@ -33,7 +31,6 @@
 
     <q-page-container>
       <TableQuasar />
-      <!-- {{ countries }} -->
     </q-page-container>
   </q-layout>
 </template>
