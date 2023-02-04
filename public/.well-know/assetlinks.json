@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.netlify.quasar_pwa_tests.twa",
+      "sha256_cert_fingerprints": [
+        "18:46:44:CD:4B:3C:1E:5C:96:54:92:78:04:2B:6A:90:B0:A7:60:26:5A:56:1D:A3:5F:1B:F6:BA:D2:2A:B6:76"
+      ]
+    }
+  }
+]
