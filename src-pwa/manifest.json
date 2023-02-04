@@ -4,7 +4,7 @@
   "description": "Lista de países do mundo",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#ffffff",
+  "background_color": "#027be3",
   "theme_color": "#027be3",
   "icons": [
     {
