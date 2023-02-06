@@ -53,7 +53,7 @@
 </template>
 
 <script setup>
-import { onBeforeMount, ref, computed } from "vue";
+import { onMounted, ref, computed } from "vue";
 import { useCountriesStore } from "../stores/countries";
 import { storeToRefs } from "pinia";
 import useNotify from "../composable/useNotify";
@@ -64,9 +64,21 @@ const { fetchAllCountries } = store;
 
 const { notifySuccess, notifyError } = useNotify();
 
-onBeforeMount(async () => {
+async function isNotification() {
+  Notification.requestPermission().then((perm) => {
+    if (perm === "granted") {
+      new Notification("Teste de notificação", {
+        body: "O aplicativo foi aberto!",
+        icon: "../../public/icons/icon-256x256.png",
+      });
+    }
+  });
+}
+
+onMounted(async () => {
   try {
     await fetchAllCountries();
+    await isNotification();
     notifySuccess();
   } catch (error) {
     notifyError();
