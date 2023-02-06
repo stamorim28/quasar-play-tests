@@ -45,7 +45,7 @@
         color="primary"
         :max="pagesNumber"
         :max-pages="6"
-        size="md"
+        size="lg"
         boundary-numbers
       />
     </div>
