@@ -69,7 +69,7 @@ async function isNotification() {
     if (perm === "granted") {
       new Notification("Teste de notificação", {
         body: "O aplicativo foi aberto!",
-        icon: "../../public/icons/icon-256x256.png",
+        icon: "/icons/icon-256x256.png",
       });
     }
   });
